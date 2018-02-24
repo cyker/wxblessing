@@ -113,9 +113,10 @@ class WXBLESSING:
                 return True
 
     def wxmain(self):
-        self.LoadConfig()
         if os.path.exists(self.configPath) == False:
             self.Inition()
+            exit(0)
+        self.LoadConfig()
         self.Moniter()
         while self.blessQ.empty() == False:
             wxq = self.blessQ.get()
